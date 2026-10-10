@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iKveld: date night, planned</title>
+<meta name="description" content="Say where you're starting, when and what you like. iKveld plans the whole evening: somewhere to eat, something to do after, the costs, the weather and when to leave. For couples, and for nights out with friends.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#F6D6D3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141B33" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://ikveld.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="iKveld">
+<meta property="og:title" content="iKveld: date night, planned">
+<meta property="og:description" content="The whole evening, planned: somewhere to eat, something to do after, the costs, the weather and when to leave.">
+<meta property="og:url" content="https://ikveld.com/">
+<meta property="og:image" content="https://ikveld.com/icon-512.png">
+<style>
+  /* Roboto, served from this site (no Google Fonts). Apache 2.0, see fonts/LICENSE.txt. */
+  @font-face { font-family: "Roboto"; font-weight: 400; font-display: swap; src: url("fonts/roboto-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Roboto"; font-weight: 500; font-display: swap; src: url("fonts/roboto-latin-500-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Roboto"; font-weight: 700; font-display: swap; src: url("fonts/roboto-latin-700-normal.woff2") format("woff2"); }
+
+  /* The app's looks: blush and wine for dates, midnight and rose in dark mode, teal and coral for friends. */
+  :root {
+    --bg: #FBF4F3; --surface: #FFFFFF; --bar: #F6D6D3; --bar-text: #4E1019;
+    --text: #2B1A1D; --muted: #6E5A5D; --primary: #7A1F2B; --on-primary: #FFFFFF;
+    --accent: #B8475A; --line: #EBD3D1; --teal: #0E8A97; --coral: #E0533F; --soft: #F6D6D3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0E1326; --surface: #182038; --bar: #141B33; --bar-text: #F3EEF2;
+      --text: #F3EEF2; --muted: #B7AEC0; --primary: #F29CA8; --on-primary: #3A1418;
+      --accent: #F5B48E; --line: #2A3354; --teal: #4FC3CF; --coral: #FF8A7A; --soft: #232B48;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: Roboto, "Segoe UI", system-ui, sans-serif; font-size: 17px; line-height: 1.6; color: var(--text); background: var(--bg); }
+  a { color: var(--primary); }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+
+  .site-header { background: var(--bar); color: var(--bar-text); position: sticky; top: 0; z-index: 2; }
+  .site-header .wrap { display: flex; align-items: center; gap: 20px; height: 60px; }
+  .wordmark { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.3rem; color: inherit; text-decoration: none; }
+  .wordmark svg { width: 30px; height: 30px; }
+  .nav { margin-left: auto; display: flex; gap: 18px; font-size: 0.95rem; }
+  .nav a { color: inherit; text-decoration: none; opacity: 0.85; }
+  .nav a:hover { opacity: 1; text-decoration: underline; }
+  @media (max-width: 640px) { .nav { display: none; } }
+
+  .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding: 64px 0 48px; }
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-top: 40px; } }
+  .status { display: inline-block; font-size: 0.85rem; padding: 4px 12px; border-radius: 999px; background: var(--soft); color: var(--primary); font-weight: 500; margin: 0 0 16px; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin: 0 0 18px; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; }
+  h3 { font-size: 1.1rem; margin: 0 0 6px; }
+  .lead { font-size: 1.2rem; color: var(--muted); margin: 0 0 26px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 500; text-decoration: none; }
+  .btn.primary { background: var(--primary); color: var(--on-primary); }
+  .btn.ghost { border: 1.5px solid var(--primary); color: var(--primary); }
+
+  /* An example plan, as the app shows it. */
+  .plan { background: var(--surface); border-radius: 16px; padding: 22px; position: relative;
+          border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+          box-shadow: 0 0 0 5px var(--surface), 0 0 0 6px color-mix(in srgb, var(--primary) 22%, transparent), 0 12px 30px rgba(0,0,0,0.08); }
+  .plan .tag { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 6px; }
+  .plan .name { font-size: 1.35rem; font-weight: 700; margin: 0; }
+  .plan .meta { color: var(--muted); margin: 2px 0 14px; font-size: 0.95rem; }
+  .plan ul { list-style: none; margin: 0 0 14px; padding: 0; }
+  .plan li { padding: 7px 0 7px 28px; position: relative; border-top: 1px solid var(--line); font-size: 0.95rem; }
+  .plan li::before { content: ""; position: absolute; left: 4px; top: 14px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .plan .cost { display: flex; justify-content: space-between; font-weight: 500; }
+  .plan .example { font-size: 0.78rem; color: var(--muted); margin: 10px 0 0; text-align: right; }
+
+  section { padding: 56px 0; }
+  .sec-head { max-width: 680px; margin-bottom: 28px; }
+  .sec-head p { color: var(--muted); margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .card p { margin: 0; color: var(--muted); }
+  .step { font-size: 0.8rem; font-weight: 700; color: var(--primary); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 6px; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+  .couple { border-left: 5px solid var(--primary); }
+  .friends { border-left: 5px solid var(--teal); }
+  .friends h3 { color: var(--teal); }
+  .couple h3 { color: var(--primary); }
+  .two ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); }
+
+  .promise { background: var(--soft); border-radius: 18px; padding: 32px; }
+  .promise ul { margin: 12px 0 0; padding-left: 20px; }
+
+  .partners { border: 1.5px dashed color-mix(in srgb, var(--coral) 60%, transparent); border-radius: 18px; padding: 32px; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 0.85rem; color: var(--muted); margin-top: 24px; }
+  footer p { margin: 0 0 6px; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="./" aria-label="iKveld, home">
+      <svg viewBox="0 0 200 200" aria-hidden="true"><g fill="currentColor" transform="translate(14.7 15) scale(0.81)"><path d="M 100 40 L 160 100 L 100 160 L 40 100 Z M 100 66 L 66 100 L 100 134 L 134 100 Z"/><g transform="translate(40 176) rotate(-137.4) scale(0.9 1.36)"><path d="M -12 2 C -10 -10 10 -12 12 0 C 10 50 6 105 0 150 C -4 105 -10 50 -12 2 Z"/></g></g></svg>
+      iKveld
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#together">Couples &amp; friends</a>
+      <a href="#promise">Privacy</a>
+      <a href="#partners">Partners</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <p class="status">In testing · launching in the UK and Ireland in 2026</p>
+      <h1>Date night, planned.</h1>
+      <p class="lead">Say where you're starting, when, and what you like. iKveld plans the whole evening: somewhere to eat, something to do after, what it'll cost, the weather, and when to leave. Then send it to your partner to pick.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:hello@ikveld.com?subject=Tell%20me%20when%20iKveld%20launches">Tell me when it launches</a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+    </div>
+    <div class="plan" aria-label="An example plan">
+      <p class="tag">Friday · table at 19:00</p>
+      <p class="name">Nova, Italian</p>
+      <p class="meta">A short walk from the cinema · rated 4.6</p>
+      <ul>
+        <li>You both like Italian</li>
+        <li>Afterwards: a film at the cinema nearby (check what's on and book)</li>
+        <li>Dry and mild that evening</li>
+        <li>If it rains: the wine bar next door</li>
+      </ul>
+      <p class="cost"><span>About £70 for two</span><span>Leave by 18:40</span></p>
+      <p class="example">An illustration, not a real place</p>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="sec-head">
+      <h2>A whole evening, not just a restaurant</h2>
+      <p>Most of the work of a night out is the planning. iKveld does it, and shows its reasons.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <p class="step">1 · Tell it</p>
+        <h3>Where, when, what you like</h3>
+        <p>Your starting point, the date, a budget per person and how far you'll go. Add what you like (Italian, comedy, a walk, a film), or nothing at all.</p>
+      </div>
+      <div class="card">
+        <p class="step">2 · Get two or three plans</p>
+        <h3>Each one complete</h3>
+        <p>Somewhere to eat and something to do after, with the cost, the weather, a backup if it rains, and when to leave. Every place and event is real, with a link to its source.</p>
+      </div>
+      <div class="card">
+        <p class="step">3 · Agree and go</p>
+        <h3>Send it, pick one, book it</h3>
+        <p>Send the plans to your partner or your group. Pick together, add it to your calendar, and book with the restaurant.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="together">
+    <div class="sec-head">
+      <h2>For the two of you, and for nights out with friends</h2>
+    </div>
+    <div class="two">
+      <div class="card couple">
+        <h3>Couples</h3>
+        <p>Link up with your partner and plan for both of you.</p>
+        <ul>
+          <li>Plans use what you both like, and skip places either of you didn't.</li>
+          <li>Take turns to pick; say why when you'd rather go somewhere else.</li>
+          <li>Mark the evenings you're free and see when you both are.</li>
+        </ul>
+      </div>
+      <div class="card friends">
+        <h3>Friends</h3>
+        <p>Start a group, share the link, and let everyone vote.</p>
+        <ul>
+          <li>Plans for the whole group, with the cost for everyone.</li>
+          <li>Most of you saying yes makes it on.</li>
+          <li>Everyone sees how many are free and how many voted, never who.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="promise">
+    <div class="promise">
+      <h2>Made to be trusted</h2>
+      <ul>
+        <li><strong>Nothing invented.</strong> Every restaurant and event comes from a real source, with a link, and every plan shows why it was picked.</li>
+        <li><strong>No ads, no tracking.</strong> Paid placements, if there ever are any, are always labelled.</li>
+        <li><strong>Little kept, for a short time.</strong> Your starting point is never stored, and what you share with a partner or a group goes once the evening has passed.</li>
+        <li><strong>Free to start.</strong> Your first plan needs no account, and a free account covers your date nights each month.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="partners">
+      <h2>For restaurants, venues and partners</h2>
+      <p>Every iKveld plan sends people to a specific place on a specific evening. We'd like that to end in a booking: a table, tickets for after, or somewhere to stay on a weekend away. Booking and partner links are always labelled.</p>
+      <p>If you run a restaurant, a venue or a booking service in the UK or Ireland and would like to work with us, write to <a href="mailto:hello@ikveld.com?subject=Partnership">hello@ikveld.com</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>iKveld is provided by Skeillebank Ltd, registered in Northern Ireland, company number NI744153. Registered office: 8 Manse Road, Drumquin, BT78 4SD. Contact: <a href="mailto:hello@ikveld.com">hello@ikveld.com</a>.</p>
+    <p>This website sets no cookies and collects nothing about you. The app's privacy notice and terms will be published here at launch.</p>
+  </div>
+</footer>
+</body>
+</html>
