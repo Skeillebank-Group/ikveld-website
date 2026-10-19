@@ -130,13 +130,43 @@
   .away { margin-top: 20px; border-left: 5px solid var(--accent); }
   .away h3 { color: var(--accent); }
 
-  .promise { background: var(--soft); border-radius: 18px; padding: 32px; }
-  .promise ul { margin: 12px 0 0; padding-left: 20px; }
-
   .partners { border: 1.5px dashed color-mix(in srgb, var(--coral) 60%, transparent); border-radius: 18px; padding: 32px; }
+  .partners .land { margin-top: 28px; }
 
-  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 0.85rem; color: var(--muted); margin-top: 24px; }
-  footer p { margin: 0 0 6px; }
+  /* Layout from the brand voice (voice.md): closing lines, a breathing section, what iKveld leaves out, the Skeillebank family */
+  .land { margin: 40px 0 0; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.25; letter-spacing: -0.01em; max-width: 28em; text-wrap: balance; }
+  .land::before { content: ""; display: block; width: 40px; height: 3px; background: var(--accent); margin-bottom: 16px; }
+  section.breath { padding: 96px 0; }
+  .breath p { margin: 0; font-weight: 700; font-size: clamp(28px, 4.2vw, 46px); line-height: 1.12; letter-spacing: -0.015em; max-width: 19em; text-wrap: balance; }
+  .breath p span { color: var(--muted); }
+  .without { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 40px; }
+  .without li { border-top: 1.5px solid var(--text); padding-top: 16px; display: grid; gap: 8px; align-content: start; }
+  .without h3 { font-size: 1.25rem; margin: 0; display: flex; gap: 10px; align-items: baseline; }
+  .without h3::before { content: "✕"; color: var(--coral); font-size: 1rem; }
+  .without p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  @media (max-width: 860px) { .without { grid-template-columns: minmax(0, 1fr); gap: 28px; } section.breath { padding: 64px 0; } }
+
+  .last { text-align: center; padding: 72px 0 24px; }
+  .last h2 { margin-bottom: 10px; }
+  .last p { color: var(--muted); margin: 0 auto 24px; max-width: 34em; }
+  .last .land { margin: 44px auto 0; color: var(--text); }
+  .last .land::before { margin-inline: auto; }
+
+  /* Footer, centred and stacked like every Skeillebank site: wordmark, page links, the family, then the legal line. */
+  footer.sfoot { display: grid; justify-items: center; text-align: center; padding: 44px 20px 40px; margin-top: 24px; border-top: 1px solid var(--line); }
+  .sfoot .wordmark { color: var(--text); }
+  .sfoot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 26px; margin-top: 18px; font-size: 15px; }
+  .sfoot-links a { color: var(--muted); text-decoration: none; }
+  .sfoot-links a:hover { color: var(--text); }
+  .family { width: 100%; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 22px; margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line); }
+  a.family-label { flex-basis: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 2px; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+  .family-label img { height: 24px; width: auto; display: block; }
+  .family a.fam { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 500; font-size: 15px; text-decoration: none; }
+  .family a.fam:hover, a.family-label:hover { color: var(--primary); }
+  .family a.fam img { width: 28px; height: 28px; border-radius: 7px; display: block; }
+  .sfoot-fine { width: 100%; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 13.5px; color: var(--muted); }
+  .sfoot-fine p { margin: 0; }
+  .sfoot-fine a { color: inherit; }
 </style>
 </head>
 <body>
@@ -149,7 +179,7 @@
     <nav class="nav" aria-label="Main">
       <a href="#how">How it works</a>
       <a href="#together">Couples &amp; friends</a>
-      <a href="#promise">Privacy</a>
+      <a href="#without">What's left out</a>
       <a href="#partners">Partners</a>
     </nav>
   </div>
@@ -182,6 +212,10 @@
     </div>
   </div>
 
+  <section class="breath" aria-label="Why iKveld">
+    <p>“Where do you fancy?” “I don't mind, you pick.” <span>iKveld picks, and tells you why.</span></p>
+  </section>
+
   <section id="how">
     <div class="sec-head">
       <h2>A whole evening, not just a restaurant</h2>
@@ -204,6 +238,7 @@
         <p>Send the plans to your partner or your group. Pick together, add it to your calendar, and book with the restaurant.</p>
       </div>
     </div>
+    <p class="land">The hard part of a night out was never the dinner. It was deciding where.</p>
   </section>
 
   <section id="together">
@@ -235,18 +270,28 @@
       <h3>Going away?</h3>
       <p>Plan a weekend: the hotel, then dinner, drinks or a pub crawl for each night, never the same place twice. In Belfast, Dublin, Galway or further afield. Send it to your partner or the group to agree.</p>
     </div>
+    <p class="land">You bring the company. iKveld brings the plan.</p>
   </section>
 
-  <section id="promise">
-    <div class="promise">
-      <h2>Made to be trusted</h2>
-      <ul>
-        <li><strong>Nothing invented.</strong> Every restaurant and event comes from a real source, with a link, and every plan shows why it was picked.</li>
-        <li><strong>No ads, no tracking.</strong> Paid placements, if there ever are any, are always labelled.</li>
-        <li><strong>Little kept, for a short time.</strong> Your starting point is never stored, and what you share with a partner or a group goes once the evening has passed.</li>
-        <li><strong>Free to start.</strong> Your first plan needs no account, and a free account covers your date nights each month.</li>
-      </ul>
+  <section id="without">
+    <div class="sec-head">
+      <h2>What iKveld leaves out</h2>
     </div>
+    <ul class="without">
+      <li>
+        <h3>Made-up places</h3>
+        <p>Every restaurant, bar and event comes from a real source, with a link, and every plan shows why it was picked.</p>
+      </li>
+      <li>
+        <h3>Ads and tracking</h3>
+        <p>No adverts and no tracking. If a place ever pays to be shown, it's labelled, and paying never moves it up.</p>
+      </li>
+      <li>
+        <h3>A record of your nights out</h3>
+        <p>Your starting point is never stored, and what you share with a partner or a group is deleted once the evening has passed.</p>
+      </li>
+    </ul>
+    <p class="land">Just the night out, and the reasons for it.</p>
   </section>
 
   <section id="partners">
@@ -254,14 +299,40 @@
       <h2>For restaurants, venues and partners</h2>
       <p>Every iKveld plan sends people to a specific place on a specific evening. We'd like that to end in a booking: a table, tickets for after, or somewhere to stay on a weekend away. Booking and partner links are always labelled.</p>
       <p>If you run a restaurant, a venue or a booking service in the UK or Ireland and would like to work with us, write to <a href="mailto:hello@ikveld.com?subject=Partnership">hello@ikveld.com</a>.</p>
+      <p class="land">You know your regulars. iKveld helps the next ones find you.</p>
     </div>
+  </section>
+
+  <section class="last" id="launch">
+    <h2>Free in Northern Ireland from December</h2>
+    <p>Your first plan needs no account, and a free account covers your date nights each month.</p>
+    <a class="btn primary" href="mailto:hello@ikveld.com?subject=Tell%20me%20when%20iKveld%20launches">Tell me when it launches</a>
+    <p class="land">Somebody has to plan the night out. It doesn't have to be you.</p>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <p>iKveld is provided by Skeillebank Ltd, registered in Northern Ireland, company number NI744153. Registered office: 8 Manse Road, Drumquin, BT78 4SD. Contact: <a href="mailto:hello@ikveld.com">hello@ikveld.com</a>.</p>
+<footer class="sfoot wrap">
+  <a class="wordmark" href="./" aria-label="iKveld, home">
+    <svg viewBox="0 0 200 200" aria-hidden="true"><g fill="currentColor" transform="translate(14.7 15) scale(0.81)"><path d="M 100 40 L 160 100 L 100 160 L 40 100 Z M 100 66 L 66 100 L 100 134 L 134 100 Z"/><g transform="translate(40 176) rotate(-137.4) scale(0.9 1.36)"><path d="M -12 2 C -10 -10 10 -12 12 0 C 10 50 6 105 0 150 C -4 105 -10 50 -12 2 Z"/></g></g></svg>
+    iKveld
+  </a>
+  <nav class="sfoot-links" aria-label="Footer">
+    <a href="#how">How it works</a>
+    <a href="#together">Couples &amp; friends</a>
+    <a href="#without">What's left out</a>
+    <a href="#partners">Partners</a>
+    <a href="mailto:hello@ikveld.com">Contact</a>
+  </nav>
+  <nav class="family" aria-label="Skeillebank products">
+    <a class="family-label" href="https://skeillebank.com"><img src="logos/skeillebank.webp" alt="" width="23" height="24">Made by Skeillebank</a>
+    <a class="fam" href="https://entrycode.uk"><img src="logos/entrycode.svg" alt="" width="28" height="28">EntryCode</a>
+    <a class="fam" href="https://skiftora.com"><img src="logos/skiftora.svg" alt="" width="28" height="28">Skiftora</a>
+    <a class="fam" href="https://bokapay.co.uk"><img src="logos/bokapay.svg" alt="" width="28" height="28">BokaPay</a>
+  </nav>
+  <div class="sfoot-fine">
+    <p>iKveld is provided by Skeillebank Ltd, registered in Northern Ireland, company no. NI744153. Registered office: 8 Manse Road, Drumquin, BT78 4SD.</p>
     <p>This website sets no cookies and collects nothing about you. The app's privacy notice and terms will be published here at launch.</p>
+    <p>© 2026 Skeillebank Ltd · <a href="mailto:hello@ikveld.com">hello@ikveld.com</a></p>
   </div>
 </footer>
 </body>
