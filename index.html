@@ -7,8 +7,8 @@
 <meta name="description" content="Date night, dinner with friends, a pub crawl or a weekend away, planned. Northern Ireland first: where to eat or drink, what to do before or after, the weather and when to set off.">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#F6D6D3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#141B33" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#2F5D50" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121816" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ikveld.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="iKveld">
@@ -60,15 +60,15 @@
 
   /* The app's looks: blush and wine for dates, midnight and rose in dark mode, teal and coral for friends. */
   :root {
-    --bg: #FBF4F3; --surface: #FFFFFF; --bar: #F6D6D3; --bar-text: #4E1019;
-    --text: #2B1A1D; --muted: #6E5A5D; --primary: #7A1F2B; --on-primary: #FFFFFF;
-    --accent: #B8475A; --line: #EBD3D1; --teal: #0E8A97; --coral: #E0533F; --soft: #F6D6D3;
+    --bg: #F4F1E8; --surface: #FFFDF8; --bar: #2F5D50; --bar-text: #F4F1E8;
+    --text: #1F2A26; --muted: #66706B; --primary: #2F5D50; --on-primary: #FFFFFF;
+    --accent: #2F5D50; --line: #E0DCCF; --teal: #4E6A8A; --coral: #B3261E; --pop: #E3A72F; --soft: #E3ECE6;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0E1326; --surface: #182038; --bar: #141B33; --bar-text: #F3EEF2;
-      --text: #F3EEF2; --muted: #B7AEC0; --primary: #F29CA8; --on-primary: #3A1418;
-      --accent: #F5B48E; --line: #2A3354; --teal: #4FC3CF; --coral: #FF8A7A; --soft: #232B48;
+      --bg: #121816; --surface: #1A2320; --bar: #121816; --bar-text: #E9EEE9;
+      --text: #E9EEE9; --muted: #9AA7A1; --primary: #7FB8A4; --on-primary: #0F1A16;
+      --accent: #7FB8A4; --line: #2A3631; --teal: #9DB4D3; --coral: #F2A49C; --pop: #F0BE5A; --soft: #22302B;
     }
   }
   * { box-sizing: border-box; }
@@ -130,7 +130,7 @@
   .away { margin-top: 20px; border-left: 5px solid var(--accent); }
   .away h3 { color: var(--accent); }
 
-  .partners { border: 1.5px dashed color-mix(in srgb, var(--coral) 60%, transparent); border-radius: 18px; padding: 32px; }
+  .partners { border: 1.5px dashed var(--pop); border-radius: 18px; padding: 32px; }
   .partners .land { margin-top: 28px; }
 
   /* Layout from the brand voice (voice.md): closing lines, a breathing section, what iKveld leaves out, the Skeillebank family */
