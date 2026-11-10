@@ -83,7 +83,7 @@
   .land::before { content: ""; display: block; width: 40px; height: 3px; background: var(--accent); margin-bottom: 16px; }
   section.breath { padding: 96px 0; }
   .breath p { margin: 0; font-weight: 700; font-size: clamp(28px, 4.2vw, 46px); line-height: 1.12; letter-spacing: -0.015em; max-width: 19em; text-wrap: balance; }
-  .breath p span { color: var(--muted); }
+  .breath p span { color: var(--accent); }
   .without { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 40px; }
   .without li { border-top: 1.5px solid var(--text); padding-top: 16px; display: grid; gap: 8px; align-content: start; }
   .without h3 { font-size: 1.25rem; margin: 0; display: flex; gap: 10px; align-items: baseline; }
