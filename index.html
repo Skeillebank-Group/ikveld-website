@@ -167,6 +167,12 @@
   .sfoot-fine { width: 100%; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 13.5px; color: var(--muted); }
   .sfoot-fine p { margin: 0; }
   .sfoot-fine a { color: inherit; }
+  .towns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 860px) { .towns { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .towns div { border-top: 1.5px solid var(--text); padding-top: 12px; }
+  .towns h3 { margin: 0 0 6px; }
+  .towns a { display: block; padding: 6px 0; text-decoration: none; }
+  .towns a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -294,6 +300,19 @@
     <p class="land">Just the night out, and the reasons for it.</p>
   </section>
 
+  <section id="towns">
+    <div class="sec-head">
+      <h2>Planning a night out near you?</h2>
+      <p>iKveld starts in Omagh, Enniskillen, Derry and Strabane.</p>
+    </div>
+    <div class="towns">
+      <div><h3>Omagh</h3><a href="date-night-omagh/">Date night in Omagh</a><a href="night-out-omagh/">Night out with friends in Omagh</a></div>
+      <div><h3>Enniskillen</h3><a href="date-night-enniskillen/">Date night in Enniskillen</a><a href="night-out-enniskillen/">Night out with friends in Enniskillen</a></div>
+      <div><h3>Derry</h3><a href="date-night-derry/">Date night in Derry</a><a href="night-out-derry/">Night out with friends in Derry</a></div>
+      <div><h3>Strabane</h3><a href="date-night-strabane/">Date night in Strabane</a><a href="night-out-strabane/">Night out with friends in Strabane</a></div>
+    </div>
+  </section>
+
   <section id="partners">
     <div class="partners">
       <h2>For restaurants, venues and partners</h2>
@@ -320,6 +339,7 @@
     <a href="#how">How it works</a>
     <a href="#together">Couples &amp; friends</a>
     <a href="#without">What's left out</a>
+    <a href="#towns">Towns</a>
     <a href="#partners">Partners</a>
     <a href="mailto:hello@ikveld.com">Contact</a>
   </nav>
