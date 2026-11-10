@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>iKveld: date nights, nights out and pub crawls, planned</title>
-<meta name="description" content="Date night, dinner with friends, a pub crawl or a weekend away, planned. Northern Ireland first: where to eat or drink, what to do after, the weather and when to leave.">
+<meta name="description" content="Date night, dinner with friends, a pub crawl or a weekend away, planned. Northern Ireland first: where to eat or drink, what to do before or after, the weather and when to set off.">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#F6D6D3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#141B33" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#2F5D50" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121816" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://ikveld.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="iKveld">
 <meta property="og:title" content="iKveld: date nights, nights out and pub crawls, planned">
-<meta property="og:description" content="The whole evening, planned: where to eat or drink, what to do after, the cost, the weather and when to leave. For couples, and for nights out with friends.">
+<meta property="og:description" content="The whole evening, planned: where to eat or drink, what to do before or after, the cost, the weather and when to set off. For couples, and for nights out with friends.">
 <meta property="og:url" content="https://ikveld.com/">
 <meta property="og:image" content="https://ikveld.com/icon-512.png">
 <meta property="og:locale" content="en_GB">
@@ -44,7 +44,7 @@
       "url": "https://app.ikveld.com/",
       "applicationCategory": "LifestyleApplication",
       "operatingSystem": "Any (web browser)",
-      "description": "Plans date nights, dinner with friends, pub crawls and weekends away: where to eat or drink, what to do after, the cost, the weather and when to leave. Couples pick together; groups vote.",
+      "description": "Plans date nights, dinner with friends, pub crawls and weekends away: where to eat or drink, what to do before or after, the cost, the weather and when to set off. Couples pick together; groups vote.",
       "areaServed": { "@type": "Place", "name": "Northern Ireland" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
       "publisher": { "@id": "https://ikveld.com/#company" }
@@ -60,15 +60,15 @@
 
   /* The app's looks: blush and wine for dates, midnight and rose in dark mode, teal and coral for friends. */
   :root {
-    --bg: #FBF4F3; --surface: #FFFFFF; --bar: #F6D6D3; --bar-text: #4E1019;
-    --text: #2B1A1D; --muted: #6E5A5D; --primary: #7A1F2B; --on-primary: #FFFFFF;
-    --accent: #B8475A; --line: #EBD3D1; --teal: #0E8A97; --coral: #E0533F; --soft: #F6D6D3;
+    --bg: #F4F1E8; --surface: #FFFDF8; --bar: #2F5D50; --bar-text: #F4F1E8;
+    --text: #1F2A26; --muted: #66706B; --primary: #2F5D50; --on-primary: #FFFFFF;
+    --accent: #2F5D50; --line: #E0DCCF; --teal: #4E6A8A; --coral: #B3261E; --pop: #E3A72F; --soft: #E3ECE6;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0E1326; --surface: #182038; --bar: #141B33; --bar-text: #F3EEF2;
-      --text: #F3EEF2; --muted: #B7AEC0; --primary: #F29CA8; --on-primary: #3A1418;
-      --accent: #F5B48E; --line: #2A3354; --teal: #4FC3CF; --coral: #FF8A7A; --soft: #232B48;
+      --bg: #121816; --surface: #1A2320; --bar: #121816; --bar-text: #E9EEE9;
+      --text: #E9EEE9; --muted: #9AA7A1; --primary: #7FB8A4; --on-primary: #0F1A16;
+      --accent: #7FB8A4; --line: #2A3631; --teal: #9DB4D3; --coral: #F2A49C; --pop: #F0BE5A; --soft: #22302B;
     }
   }
   * { box-sizing: border-box; }
@@ -130,7 +130,7 @@
   .away { margin-top: 20px; border-left: 5px solid var(--accent); }
   .away h3 { color: var(--accent); }
 
-  .partners { border: 1.5px dashed color-mix(in srgb, var(--coral) 60%, transparent); border-radius: 18px; padding: 32px; }
+  .partners { border: 1.5px dashed var(--pop); border-radius: 18px; padding: 32px; }
   .partners .land { margin-top: 28px; }
 
   /* Layout from the brand voice (voice.md): closing lines, a breathing section, what iKveld leaves out, the Skeillebank family */
@@ -138,7 +138,7 @@
   .land::before { content: ""; display: block; width: 40px; height: 3px; background: var(--accent); margin-bottom: 16px; }
   section.breath { padding: 96px 0; }
   .breath p { margin: 0; font-weight: 700; font-size: clamp(28px, 4.2vw, 46px); line-height: 1.12; letter-spacing: -0.015em; max-width: 19em; text-wrap: balance; }
-  .breath p span { color: var(--muted); }
+  .breath p span { color: var(--accent); }
   .without { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 40px; }
   .without li { border-top: 1.5px solid var(--text); padding-top: 16px; display: grid; gap: 8px; align-content: start; }
   .without h3 { font-size: 1.25rem; margin: 0; display: flex; gap: 10px; align-items: baseline; }
@@ -167,6 +167,12 @@
   .sfoot-fine { width: 100%; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 13.5px; color: var(--muted); }
   .sfoot-fine p { margin: 0; }
   .sfoot-fine a { color: inherit; }
+  .towns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 860px) { .towns { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .towns div { border-top: 1.5px solid var(--text); padding-top: 12px; }
+  .towns h3 { margin: 0 0 6px; }
+  .towns a { display: block; padding: 6px 0; text-decoration: none; }
+  .towns a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -190,7 +196,7 @@
     <div>
       <p class="status">In testing · free beta in Northern Ireland from December</p>
       <h1>Date night, planned.</h1>
-      <p class="lead">Say where you're starting, when, and what you like. iKveld plans the whole evening: somewhere to eat, something to do after, what it'll cost, the weather, and when to leave. Then send it to your partner to pick, or to your friends to vote on.</p>
+      <p class="lead">Say where you're starting, when, and what you like. iKveld plans the whole evening: somewhere to eat, something to do before or after, what it'll cost, the weather, and when to set off. Then send it to your partner to pick, or to your friends to vote on.</p>
       <p class="lead">Date nights, dinner with friends, pub crawls and weekends away, starting in Omagh, Enniskillen, Derry and Strabane.</p>
       <div class="cta-row">
         <a class="btn primary" href="mailto:hello@ikveld.com?subject=Tell%20me%20when%20iKveld%20launches">Tell me when it launches</a>
@@ -225,12 +231,12 @@
       <div class="card">
         <p class="step">1 · Tell it</p>
         <h3>Where, when, what you like</h3>
-        <p>Your starting point, the date, a budget per person and how far you'll go. Add what you like (Italian, comedy, a walk, a film), or nothing at all.</p>
+        <p>Your starting point, the date, a budget per person and how far you're happy to travel. Add what you like (Italian, comedy, a walk, a film), or nothing at all.</p>
       </div>
       <div class="card">
         <p class="step">2 · Get two or three plans</p>
         <h3>Each one complete</h3>
-        <p>Somewhere to eat and something to do after, with the cost, the weather, a backup if it rains, and when to leave. Every place and event is real, with a link to its source.</p>
+        <p>Somewhere to eat and something to do before or after, with the cost, the weather, a backup if it rains, and when to set off. Each place links to its own website or map.</p>
       </div>
       <div class="card">
         <p class="step">3 · Agree and go</p>
@@ -253,6 +259,8 @@
           <li>Plans use what you both like, and skip places either of you didn't.</li>
           <li>Take turns to pick; say why when you'd rather go somewhere else.</li>
           <li>Mark the evenings you're free and see when you both are.</li>
+          <li>Keep it a surprise: your partner sees only the kind of food and the price until the day.</li>
+          <li>Set a regular date night, every week or once a month, and iKveld plans each one (iKveld Plus).</li>
         </ul>
       </div>
       <div class="card friends">
@@ -261,16 +269,16 @@
         <ul>
           <li>Plans for the whole group, with the cost for everyone.</li>
           <li>Dinner, drinks, or a pub crawl: three or four bars a short walk apart, with a time for each stop.</li>
-          <li>Most of you saying yes makes it on.</li>
+          <li>If most of you say yes, the night's on.</li>
           <li>Everyone sees how many are free and how many voted, never who.</li>
         </ul>
       </div>
     </div>
     <div class="card away">
-      <h3>Going away?</h3>
-      <p>Plan a weekend: the hotel, then dinner, drinks or a pub crawl for each night, never the same place twice. In Belfast, Dublin, Galway or further afield. Send it to your partner or the group to agree.</p>
+      <h3>Going away for the weekend?</h3>
+      <p>Plan a weekend: where to stay, brunch, lunch and dinner, an afternoon out (a museum, a distillery, a spa or a walk), then drinks or a pub crawl. Never the same place twice. Anywhere from Belfast to Berlin, and further afield. Send it to your partner or the group to agree. Your first weekend is free, then it's iKveld Plus. <a href="weekend-away/">How a weekend away works</a></p>
     </div>
-    <p class="land">You bring the company. iKveld brings the plan.</p>
+    <p class="land">You bring the company. iKveld makes the plan.</p>
   </section>
 
   <section id="without">
@@ -294,12 +302,25 @@
     <p class="land">Just the night out, and the reasons for it.</p>
   </section>
 
+  <section id="towns">
+    <div class="sec-head">
+      <h2>Planning a night out near you?</h2>
+      <p>iKveld starts in Omagh, Enniskillen, Derry and Strabane. <a href="your-town/">Somewhere else? It still plans.</a> <a href="weekend-away/">Weekend away in Berlin? That too.</a></p>
+    </div>
+    <div class="towns">
+      <div><h3>Omagh</h3><a href="date-night-omagh/">Date night in Omagh</a><a href="night-out-omagh/">Night out with friends in Omagh</a></div>
+      <div><h3>Enniskillen</h3><a href="date-night-enniskillen/">Date night in Enniskillen</a><a href="night-out-enniskillen/">Night out with friends in Enniskillen</a></div>
+      <div><h3>Derry</h3><a href="date-night-derry/">Date night in Derry</a><a href="night-out-derry/">Night out with friends in Derry</a></div>
+      <div><h3>Strabane</h3><a href="date-night-strabane/">Date night in Strabane</a><a href="night-out-strabane/">Night out with friends in Strabane</a></div>
+    </div>
+  </section>
+
   <section id="partners">
     <div class="partners">
       <h2>For restaurants, venues and partners</h2>
       <p>Every iKveld plan sends people to a specific place on a specific evening. We'd like that to end in a booking: a table, tickets for after, or somewhere to stay on a weekend away. Booking and partner links are always labelled.</p>
       <p>If you run a restaurant, a venue or a booking service in the UK or Ireland and would like to work with us, write to <a href="mailto:hello@ikveld.com?subject=Partnership">hello@ikveld.com</a>.</p>
-      <p class="land">You know your regulars. iKveld helps the next ones find you.</p>
+      <p class="land">You know your regulars. iKveld sends you new ones.</p>
     </div>
   </section>
 
@@ -320,6 +341,7 @@
     <a href="#how">How it works</a>
     <a href="#together">Couples &amp; friends</a>
     <a href="#without">What's left out</a>
+    <a href="#towns">Towns</a>
     <a href="#partners">Partners</a>
     <a href="mailto:hello@ikveld.com">Contact</a>
   </nav>
