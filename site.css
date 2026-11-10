@@ -117,7 +117,8 @@
 
 /* Town pages: local notes and links to the other towns. */
 .notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 44em; }
-.notes li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; }
+.notes li { position: relative; background: color-mix(in srgb, var(--card-accent, var(--primary)) 14%, var(--surface)); border: 1px solid color-mix(in srgb, var(--card-accent, var(--primary)) 25%, var(--line)); border-left: 5px solid var(--card-accent, var(--primary)); border-radius: 14px; padding: 16px 20px 16px 48px; }
+.notes li::before { content: ""; position: absolute; left: 18px; top: 22px; width: 14px; height: 14px; background: var(--card-accent, var(--primary)); -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>') center/contain no-repeat; mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>') center/contain no-repeat; }
 .towns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 860px) { .towns { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .towns div { border-top: 1.5px solid var(--text); padding-top: 12px; }
