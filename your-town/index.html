@@ -43,7 +43,7 @@
       <h1>Not in your town yet? It still plans.</h1>
       <p class="lead">iKveld knows Omagh, Enniskillen, Derry and Strabane best. That's where it starts, not where it stops. Plan a date night or a night out anywhere in the UK and it looks your town up for you.</p>
       <div class="cta-row">
-        <a class="btn primary" href="mailto:hello@ikveld.com?subject=Tell%20me%20when%20iKveld%20launches">Tell me when it launches</a>
+        <a class="btn primary" href="#launch">Tell me when it opens</a>
         <a class="btn ghost" href="../#how">See how it works</a>
       </div>
     </div>
@@ -113,7 +113,17 @@
   <section class="last" id="launch">
     <h2>Free in Northern Ireland from December</h2>
     <p>Your first plan needs no account, and a free account covers your date nights each month.</p>
-    <a class="btn primary" href="mailto:hello@ikveld.com?subject=Tell%20me%20when%20iKveld%20launches">Tell me when it launches</a>
+    <form class="signup" action="https://3156a3ab.sibforms.com/serve/MUIFAGjV-zUfcqCntS_o_ncw4vfMBBFPgkf0wUNLIs1iCVsAwgs4yk5uv6b-KmCj1Ua1kl5q1ILLOsngZYg_tvzyiwTN46jujnQcZWJXBQNypKvfVNk0cnjvrT3RWGncwRZUglNGFI-xEhy093mZWnL3lvob7wXQJEFdvdzqoUvWy5r4keK-ZZtm9ZNAGUYvgQoGF8-kL7ayw7OPmw==" method="POST" data-signup>
+      <label class="vh" for="signup-email">Your email address</label>
+      <div class="signup-row">
+        <input id="signup-email" type="email" name="EMAIL" autocomplete="email" required placeholder="Your email address">
+        <button class="btn primary" type="submit">Tell me when it opens</button>
+      </div>
+      <input class="vh" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="locale" value="en">
+      <p class="signup-note">One email when iKveld opens, and the odd one after when there's something worth knowing. Unsubscribe any time.</p>
+      <p class="signup-msg" role="status" aria-live="polite"></p>
+    </form>
     <p class="land">Somebody has to plan the night out. It doesn't have to be you.</p>
   </section>
 </main>
@@ -138,9 +148,10 @@
   </nav>
   <div class="sfoot-fine">
     <p>iKveld is provided by Skeillebank Ltd, registered in Northern Ireland, company no. NI744153. Registered office: 8 Manse Road, Drumquin, BT78 4SD.</p>
-    <p>This website sets no cookies and collects nothing about you. The app's privacy notice and terms will be published here at launch.</p>
+    <p>This website sets no cookies. If you ask for launch news, your email address is kept by Brevo, our email service in the EU, until you unsubscribe, and used only for iKveld news. The app's privacy notice and terms will be published here at launch.</p>
     <p>© 2026 Skeillebank Ltd · <a href="mailto:hello@ikveld.com">hello@ikveld.com</a></p>
   </div>
 </footer>
+<script src="../signup.js" defer></script>
 </body>
 </html>

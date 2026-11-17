@@ -175,6 +175,29 @@
   .towns h3 { margin: 0 0 6px; }
   .towns a { display: block; padding: 6px 0; text-decoration: none; }
   .towns a:hover { text-decoration: underline; }
+
+/* Launch signup (Brevo, double opt-in), 17 Nov 2026 */
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.signup { max-width: 32em; margin: 0 auto; }
+.signup-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.signup input[type="email"] { flex: 1 1 15em; min-width: 0; font: inherit; padding: 11px 14px; border-radius: 10px; border: 1.5px solid var(--muted); background: var(--surface); color: var(--text); }
+.signup input[type="email"]::placeholder { color: var(--muted); }
+.signup button { flex: 1 0 auto; border: 0; font: inherit; font-weight: 500; cursor: pointer; }
+.signup button[disabled] { opacity: 0.6; cursor: default; }
+.signup input:focus-visible, .signup button:focus-visible { outline: 2.5px solid var(--primary); outline-offset: 2px; }
+.signup .signup-note { font-size: 0.9rem; color: var(--muted); margin: 12px auto 0; }
+.signup .signup-msg { margin: 14px auto 0; font-weight: 500; color: var(--text); }
+.signup .signup-msg:empty { display: none; }
+.signup .signup-msg.ok { display: inline-block; position: relative; padding-left: 34px; text-align: left; }
+.signup .signup-msg.ok::before, .signup .signup-msg.ok::after { content: ""; position: absolute; left: 0; top: calc(0.5lh - 11px); width: 22px; height: 22px; }
+.signup .signup-msg.ok::before { border-radius: 50%; background: var(--primary); }
+.signup .signup-msg.ok::after { background: var(--on-primary); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 15px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 15px no-repeat; }
+.signup .signup-msg.err { color: var(--coral); }
+.signup.done .signup-row, .signup.done .signup-note { display: none; }
+/* The good moment: confirmed page */
+.joined { padding-top: 96px; }
+.joined .mark { width: 64px; height: 64px; margin: 0 auto 22px; border-radius: 50%; background: var(--pop); position: relative; }
+.joined .mark::after { content: ""; position: absolute; inset: 0; background: #1F2A26; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 38px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 38px no-repeat; }
 </style>
 </head>
 <body>
@@ -201,7 +224,7 @@
       <p class="lead">Say where you're starting, when, and what you like. iKveld plans the whole evening: somewhere to eat, something to do before or after, what it'll cost, the weather, and when to set off. Then send it to your partner to pick, or to your friends to vote on.</p>
       <p class="lead">Date nights, dinner with friends, pub crawls and weekends away, starting in Omagh, Enniskillen, Derry and Strabane.</p>
       <div class="cta-row">
-        <a class="btn primary" href="mailto:hello@ikveld.com?subject=Tell%20me%20when%20iKveld%20launches">Tell me when it launches</a>
+        <a class="btn primary" href="#launch">Tell me when it opens</a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
     </div>
@@ -329,7 +352,17 @@
   <section class="last" id="launch">
     <h2>Free in Northern Ireland from December</h2>
     <p>Your first plan needs no account, and a free account covers your date nights each month.</p>
-    <a class="btn primary" href="mailto:hello@ikveld.com?subject=Tell%20me%20when%20iKveld%20launches">Tell me when it launches</a>
+    <form class="signup" action="https://3156a3ab.sibforms.com/serve/MUIFAGjV-zUfcqCntS_o_ncw4vfMBBFPgkf0wUNLIs1iCVsAwgs4yk5uv6b-KmCj1Ua1kl5q1ILLOsngZYg_tvzyiwTN46jujnQcZWJXBQNypKvfVNk0cnjvrT3RWGncwRZUglNGFI-xEhy093mZWnL3lvob7wXQJEFdvdzqoUvWy5r4keK-ZZtm9ZNAGUYvgQoGF8-kL7ayw7OPmw==" method="POST" data-signup>
+      <label class="vh" for="signup-email">Your email address</label>
+      <div class="signup-row">
+        <input id="signup-email" type="email" name="EMAIL" autocomplete="email" required placeholder="Your email address">
+        <button class="btn primary" type="submit">Tell me when it opens</button>
+      </div>
+      <input class="vh" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="locale" value="en">
+      <p class="signup-note">One email when iKveld opens, and the odd one after when there's something worth knowing. Unsubscribe any time.</p>
+      <p class="signup-msg" role="status" aria-live="polite"></p>
+    </form>
     <p class="land">Somebody has to plan the night out. It doesn't have to be you.</p>
   </section>
 </main>
@@ -355,9 +388,10 @@
   </nav>
   <div class="sfoot-fine">
     <p>iKveld is provided by Skeillebank Ltd, registered in Northern Ireland, company no. NI744153. Registered office: 8 Manse Road, Drumquin, BT78 4SD.</p>
-    <p>This website sets no cookies and collects nothing about you. The app's privacy notice and terms will be published here at launch.</p>
+    <p>This website sets no cookies. If you ask for launch news, your email address is kept by Brevo, our email service in the EU, until you unsubscribe, and used only for iKveld news. The app's privacy notice and terms will be published here at launch.</p>
     <p>© 2026 Skeillebank Ltd · <a href="mailto:hello@ikveld.com">hello@ikveld.com</a></p>
   </div>
 </footer>
+<script src="signup.js" defer></script>
 </body>
 </html>
