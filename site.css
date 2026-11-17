@@ -126,3 +126,26 @@
 .towns a { display: block; padding: 6px 0; text-decoration: none; }
 .towns a:hover { text-decoration: underline; }
 .towns a[aria-current] { color: var(--muted); }
+
+/* Launch signup (Brevo, double opt-in), 17 Nov 2026 */
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.signup { max-width: 32em; margin: 0 auto; }
+.signup-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.signup input[type="email"] { flex: 1 1 15em; min-width: 0; font: inherit; padding: 11px 14px; border-radius: 10px; border: 1.5px solid var(--muted); background: var(--surface); color: var(--text); }
+.signup input[type="email"]::placeholder { color: var(--muted); }
+.signup button { flex: 1 0 auto; border: 0; font: inherit; font-weight: 500; cursor: pointer; }
+.signup button[disabled] { opacity: 0.6; cursor: default; }
+.signup input:focus-visible, .signup button:focus-visible { outline: 2.5px solid var(--primary); outline-offset: 2px; }
+.signup .signup-note { font-size: 0.9rem; color: var(--muted); margin: 12px auto 0; }
+.signup .signup-msg { margin: 14px auto 0; font-weight: 500; color: var(--text); }
+.signup .signup-msg:empty { display: none; }
+.signup .signup-msg.ok { display: inline-block; position: relative; padding-left: 34px; text-align: left; }
+.signup .signup-msg.ok::before, .signup .signup-msg.ok::after { content: ""; position: absolute; left: 0; top: calc(0.5lh - 11px); width: 22px; height: 22px; }
+.signup .signup-msg.ok::before { border-radius: 50%; background: var(--primary); }
+.signup .signup-msg.ok::after { background: var(--on-primary); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 15px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 15px no-repeat; }
+.signup .signup-msg.err { color: var(--coral); }
+.signup.done .signup-row, .signup.done .signup-note { display: none; }
+/* The good moment: confirmed page */
+.joined { padding-top: 96px; }
+.joined .mark { width: 64px; height: 64px; margin: 0 auto 22px; border-radius: 50%; background: var(--pop); position: relative; }
+.joined .mark::after { content: ""; position: absolute; inset: 0; background: #1F2A26; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 38px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 38px no-repeat; }
