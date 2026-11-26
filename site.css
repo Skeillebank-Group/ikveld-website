@@ -18,6 +18,10 @@
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  html, body { overflow-x: clip; }
+  /* Focus ring at 3:1 or better: the brand green on the page, the bar's own text colour in the header. */
+  :focus-visible { outline: 2.5px solid var(--primary); outline-offset: 2px; }
+  .site-header :focus-visible { outline-color: var(--bar-text); }
   body { margin: 0; font-family: Roboto, "Segoe UI", system-ui, sans-serif; font-size: 17px; line-height: 1.6; color: var(--text); background: var(--bg); }
   a { color: var(--primary); }
   .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
@@ -34,20 +38,21 @@
   .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding: 64px 0 48px; }
   @media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-top: 40px; } }
   .status { display: inline-block; font-size: 0.85rem; padding: 4px 12px; border-radius: 999px; background: var(--soft); color: var(--primary); font-weight: 500; margin: 0 0 16px; }
-  h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin: 0 0 18px; letter-spacing: -0.02em; }
-  h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin: 0 0 18px; letter-spacing: -0.02em; text-wrap: balance; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; text-wrap: balance; }
   h3 { font-size: 1.1rem; margin: 0 0 6px; }
   .lead { font-size: 1.2rem; color: var(--muted); margin: 0 0 26px; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn { display: inline-block; padding: 12px 22px; border-radius: 10px; font-weight: 500; text-decoration: none; }
   .btn.primary { background: var(--primary); color: var(--on-primary); }
   .btn.ghost { border: 1.5px solid var(--primary); color: var(--primary); }
+  .btn:active { transform: translateY(1px); }
 
   /* An example plan, as the app shows it. */
   .plan { background: var(--surface); border-radius: 16px; padding: 22px; position: relative;
           border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
           box-shadow: 0 0 0 5px var(--surface), 0 0 0 6px color-mix(in srgb, var(--primary) 22%, transparent), 0 12px 30px rgba(0,0,0,0.08); }
-  .plan .tag { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 6px; }
+  .plan .tag { font-size: 0.9rem; font-weight: 500; color: var(--muted); margin: 0 0 6px; }
   .plan .name { font-size: 1.35rem; font-weight: 700; margin: 0; }
   .plan .meta { color: var(--muted); margin: 2px 0 14px; font-size: 0.95rem; }
   .plan ul { list-style: none; margin: 0 0 14px; padding: 0; }
@@ -61,20 +66,20 @@
   .sec-head p { color: var(--muted); margin: 0; }
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
-  .card { background: color-mix(in srgb, var(--card-accent, var(--primary)) 14%, var(--surface)); border: 1px solid color-mix(in srgb, var(--card-accent, var(--primary)) 25%, var(--line)); border-left: 5px solid var(--card-accent, var(--primary)); border-radius: 14px; padding: 22px; }
+  .card { background: color-mix(in srgb, var(--card-accent, var(--primary)) 14%, var(--surface)); border: 1px solid color-mix(in srgb, var(--card-accent, var(--primary)) 45%, var(--line)); border-radius: 14px; padding: 22px; }
   .card h3 { color: var(--card-accent, var(--primary)); }
   body.out { --card-accent: var(--teal); }
   .card p { margin: 0; color: var(--text); }
-  .step { font-size: 0.8rem; font-weight: 700; color: var(--primary); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 6px; }
+  .step { font-size: 0.95rem; font-weight: 500; color: var(--primary); margin: 0 0 6px; }
 
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
-  .couple { border-left: 5px solid var(--primary); }
-  .friends { border-left: 5px solid var(--teal); }
+  .couple { border-color: color-mix(in srgb, var(--primary) 45%, var(--line)); }
+  .friends { border-color: color-mix(in srgb, var(--teal) 45%, var(--line)); }
   .friends h3 { color: var(--teal); }
   .couple h3 { color: var(--primary); }
   .two ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); }
-  .away { margin-top: 20px; border-left: 5px solid var(--accent); }
+  .away { margin-top: 20px; border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
   .away h3 { color: var(--accent); }
 
   .partners { border: 1.5px dashed var(--pop); border-radius: 18px; padding: 32px; }
@@ -106,7 +111,7 @@
   .sfoot-links a { color: var(--muted); text-decoration: none; }
   .sfoot-links a:hover { color: var(--text); }
   .family { width: 100%; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 22px; margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--line); }
-  a.family-label { flex-basis: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 2px; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+  a.family-label { flex-basis: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 2px; font-size: 14px; color: var(--muted); text-decoration: none; }
   .family-label img { height: 24px; width: auto; display: block; }
   .family a.fam { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 500; font-size: 15px; text-decoration: none; }
   .family a.fam:hover, a.family-label:hover { color: var(--primary); }
@@ -117,10 +122,10 @@
 
 /* Town pages: local notes and links to the other towns. */
 .notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 44em; }
-.notes li { position: relative; background: color-mix(in srgb, var(--card-accent, var(--primary)) 14%, var(--surface)); border: 1px solid color-mix(in srgb, var(--card-accent, var(--primary)) 25%, var(--line)); border-left: 5px solid var(--card-accent, var(--primary)); border-radius: 14px; padding: 16px 20px 16px 48px; }
+.notes li { position: relative; background: color-mix(in srgb, var(--card-accent, var(--primary)) 14%, var(--surface)); border: 1px solid color-mix(in srgb, var(--card-accent, var(--primary)) 45%, var(--line)); border-radius: 14px; padding: 16px 20px 16px 48px; }
 .notes li::before { content: ""; position: absolute; left: 18px; top: 22px; width: 14px; height: 14px; background: var(--card-accent, var(--primary)); -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>') center/contain no-repeat; mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>') center/contain no-repeat; }
-.towns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 860px) { .towns { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.towns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; max-width: 760px; }
+@media (max-width: 560px) { .towns { grid-template-columns: minmax(0, 1fr); } }
 .towns div { border-top: 1.5px solid var(--text); padding-top: 12px; }
 .towns h3 { margin: 0 0 6px; }
 .towns a { display: block; padding: 6px 0; text-decoration: none; }
@@ -134,7 +139,7 @@
 .signup input[type="email"] { flex: 1 1 15em; min-width: 0; font: inherit; padding: 11px 14px; border-radius: 10px; border: 1.5px solid var(--muted); background: var(--surface); color: var(--text); }
 .signup input[type="email"]::placeholder { color: var(--muted); }
 .signup button { flex: 1 0 auto; border: 0; font: inherit; font-weight: 500; cursor: pointer; }
-.signup button[disabled] { opacity: 0.6; cursor: default; }
+.signup button[disabled] { background: var(--line); color: var(--muted); cursor: not-allowed; }
 .signup input:focus-visible, .signup button:focus-visible { outline: 2.5px solid var(--primary); outline-offset: 2px; }
 .signup .signup-note { font-size: 0.9rem; color: var(--muted); margin: 12px auto 0; }
 .signup .signup-msg { margin: 14px auto 0; font-weight: 500; color: var(--text); }
