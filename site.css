@@ -1,7 +1,8 @@
-/* Roboto, served from this site (no Google Fonts). Apache 2.0, see fonts/LICENSE.txt. */
-  @font-face { font-family: "Roboto"; font-weight: 400; font-display: swap; src: url("fonts/roboto-latin-400-normal.woff2") format("woff2"); }
-  @font-face { font-family: "Roboto"; font-weight: 500; font-display: swap; src: url("fonts/roboto-latin-500-normal.woff2") format("woff2"); }
-  @font-face { font-family: "Roboto"; font-weight: 700; font-display: swap; src: url("fonts/roboto-latin-700-normal.woff2") format("woff2"); }
+/* The app's fonts, served from this site (no Google Fonts): Figtree for text, Young Serif for headings. SIL Open Font License, see fonts/OFL-*.txt. */
+  @font-face { font-family: "Figtree"; font-weight: 400; font-display: swap; src: url("fonts/figtree-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Figtree"; font-weight: 500; font-display: swap; src: url("fonts/figtree-latin-500-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Figtree"; font-weight: 700; font-display: swap; src: url("fonts/figtree-latin-700-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Young Serif"; font-weight: 400; font-display: swap; src: url("fonts/young-serif-latin-400-normal.woff2") format("woff2"); }
 
   /* The app's looks: blush and wine for dates, midnight and rose in dark mode, teal and coral for friends. */
   :root {
@@ -22,7 +23,7 @@
   /* Focus ring at 3:1 or better: the brand green on the page, the bar's own text colour in the header. */
   :focus-visible { outline: 2.5px solid var(--primary); outline-offset: 2px; }
   .site-header :focus-visible { outline-color: var(--bar-text); }
-  body { margin: 0; font-family: Roboto, "Segoe UI", system-ui, sans-serif; font-size: 17px; line-height: 1.6; color: var(--text); background: var(--bg); }
+  body { margin: 0; font-family: Figtree, "Segoe UI", system-ui, sans-serif; font-size: 17px; line-height: 1.6; color: var(--text); background: var(--bg); }
   a { color: var(--primary); }
   .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
 
@@ -154,3 +155,6 @@
 .joined { padding-top: 96px; }
 .joined .mark { width: 64px; height: 64px; margin: 0 auto 22px; border-radius: 50%; background: var(--pop); position: relative; }
 .joined .mark::after { content: ""; position: absolute; inset: 0; background: #1F2A26; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 38px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center / 38px no-repeat; }
+
+/* Headings, the wordmark and the big lines in Young Serif, as in the app: one weight, no tightened spacing. Kept last so it wins over the weights set above. */
+h1, h2, h3, .wordmark, .land, .breath p, .plan .name, .without h3 { font-family: "Young Serif", Georgia, serif; font-weight: 400; letter-spacing: 0; }
